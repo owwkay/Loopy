@@ -1,4 +1,4 @@
-//get rid of space margin
+console.log ('hello')//get rid of space margin
 document.body.style.margin =0
 document.body.style.overflow ='hidden'
 
