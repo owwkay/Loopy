@@ -1,13 +1,19 @@
+//get rid of space margin
 document.body.style.margin =0
 document.body.style.overflow ='hidden'
 
+//resize canvas
 const cnv = document.createElement ('canvas')
 cnv.width = window.innerWidth
 cnv.height = window.innerHeight
 
+//attach canvas element to DOM
 document.body.appendChild (cnv)
 
+//getting context object 
 const ctx = cnv.getContext ('2d')
+
+let x_pos = -100
 
 function drawFrame () {
     ctx.fillStyle = 'turquoise'
@@ -15,8 +21,15 @@ function drawFrame () {
 
     ctx.fillStyle = 'hotpink'
     let x_pos = (cnv.width - 100) / 2
-    let y_pos = (cnv.height - 100) / 2
     ctx.fillRect (x_pos, y_pos, 100, 100)
+
+    requestAnimationFrame (drawFrame)
+    
+    x_pos++
+
+    if (x_pos > cnv.width) {
+        x_pos = -100
+    }
 }
 
-drawFrame ()
+requestAnimationFrame (drawFrame)
